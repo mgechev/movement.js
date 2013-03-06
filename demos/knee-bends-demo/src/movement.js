@@ -163,7 +163,13 @@
     Movement._initCanvases = function () {
         can = document.createElement('canvas');
         document.body.appendChild(can);
-        can.className = 'movementjs-main';
+        can.className = "can";
+        can.style.zoom = 1.6;
+        can.style.marginTop = '-5px';
+        can.style.marginLeft = '75px';
+        can.style.position = 'absolute';
+        can.style.left = '0px';
+        can.style.top = '10px';
         can.style.visibility = 'visible';
 
         background = document.createElement('canvas');
@@ -472,3 +478,4 @@
     window.Movement = Movement;
 
 }());
+

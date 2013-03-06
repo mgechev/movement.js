@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Knee bends</title>
+<style>
+#label {
+    color: #fff;
+    font-size: 20px;
+}
+</style>
+</head>
+<body>
+<div id="label"><span id="count"></span> knee bends</div>
+<script src="../../src/movement.js"></script>
+<script>
+(function () {
+
+    Movement.init({
+        movementChanged: function (m) {
+            processMovement(m);
+        }
+    });
+
+    var count = 0,
+        squat = false;
+
+    function processMovement(m) {
+        var moves = Movement.movements;
+        if (moves.SQUAT === m) {
+            squat = true;
+        } else if (moves.STAND === m && squat) {
+            count += 1;
+            document.getElementById('count').innerHTML = count;
+            squat = false;
+        }
+    }
+}());
+</script>
+</body>
+</html>
