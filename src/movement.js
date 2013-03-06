@@ -11,7 +11,7 @@ var Movement;
         MOTION_LIMIT: 1576745,
         MIN_FRAMES_WITHOUT_MOTION: 5,
         FRAME_RATE: 24,
-        NOICE_DIFF: 70
+        NOICE_DIFF: 50
     };
 
     Filters = {};
@@ -121,6 +121,7 @@ var Movement;
         var self = this;
         vid = document.createElement('video');
         document.body.appendChild(vid);
+        vid.style.position = 'absolute';
         vid.width = Movement.constants.WIDTH;
         vid.height = Movement.constants.HEIGHT;
         this._initCanvases();
@@ -141,19 +142,22 @@ var Movement;
         can = document.createElement('canvas');
         document.body.appendChild(can);
         can.style.border = '3px solid red';
-        can.style.visibility = 'visible';
+        can.style.position = 'absolute';
 
         background = document.createElement('canvas');
         document.body.appendChild(background);
         background.style.border = '3px solid green';
+        background.style.position = 'absolute';
 
         last = document.createElement('canvas');
         document.body.appendChild(last);
         last.style.border = '3px solid blue';
+        last.style.position = 'absolute';
 
         diffCanvas = document.createElement('canvas');
         document.body.appendChild(diffCanvas);
         diffCanvas.style.border = '3px solid yellow';
+        diffCanvas.style.position = 'absolute';
 
         diffCanvas.width = last.width = background.width = can.width = Movement.constants.WIDTH;
         diffCanvas.height = last.height = background.height = can.height = Movement.constants.HEIGHT;
@@ -239,7 +243,7 @@ var Movement;
             if (this._handsUp(vD)) {
                 return 'HANDS-UP';
             }
-            if (this._stand(hD)) {
+            if (this._stand(vD)) {
                 return 'STAND';
             }
         }
@@ -258,8 +262,8 @@ var Movement;
     };
 
     Movement._stand = function (data) {
-        var requiredHeight = Movement.constants.HEIGHT * 0.5,
-            requiredWidth = Movement.constants.WIDTH * 0.2,
+        var requiredHeight = Movement.constants.HEIGHT * 0.6,
+            requiredWidth = Movement.constants.WIDTH * 0.1,
             middlePix = 0;
         for (var i = 0; i < data.length; i += 1) {
             if (data[i] / 255 >= requiredHeight) {
@@ -281,7 +285,7 @@ var Movement;
                 left -= 1;
                 right += 1;
             }
-            if (right - left > height * 0.06) {
+            if (right - left > height * 0.04) {
                 return true;
             }
         }
