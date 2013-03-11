@@ -135,7 +135,7 @@
         lastMovement = undefined,
         framesWithoutMotion = 0,
         getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia,
-        URL = URL || webkitURL || mozURL;
+        URL = window.URL || window.webkitURL || window.mozURL;
 
     Movement.init = function (options) {
         var self = this;
@@ -163,13 +163,8 @@
     Movement._initCanvases = function () {
         can = document.createElement('canvas');
         document.body.appendChild(can);
-        can.className = "can";
-        can.style.zoom = 1.6;
-        can.style.marginTop = '-5px';
-        can.style.marginLeft = '75px';
+        can.id = 'movementjs-main-canvas';
         can.style.position = 'absolute';
-        can.style.left = '0px';
-        can.style.top = '10px';
         can.style.visibility = 'visible';
 
         background = document.createElement('canvas');
@@ -454,8 +449,8 @@
         var movementPixels = 0,
             down = 0,
             up = 0,
-            armBoundry = Math.floor(data.length * 0.30),
-            legBoundry = Math.floor(data.length * 0.65),
+            armBoundry = Math.floor(data.length * 0.4),
+            legBoundry = Math.floor(data.length * 0.7),
             i;
 
         for (i = armBoundry; i < legBoundry; i += 1) {
@@ -478,4 +473,3 @@
     window.Movement = Movement;
 
 }());
-
