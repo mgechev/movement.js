@@ -19,7 +19,6 @@
         SQUAT_LEFT_ARM_UP: 'squat-left-arm-up',
         SQUAT_RIGHT_ARM_UP: 'squat-right-arm-up',
         LEFT_LEG_UP: 'left-leg-up',
-        RIGHT_ARM_UP: 'right-arm-up',
         SQUAT: 'squat',
         EMPTY: 'empty',
         RIGHT_LEG_UP: 'right-leg-up' 
@@ -63,7 +62,7 @@
                 g = d[i + 1],
                 b = d[i + 2],
                 v = 0.2126*r + 0.7152*g + 0.0722*b;
-            d[i] = d[i + 1] = d[i + 2] = v
+            d[i] = d[i + 1] = d[i + 2] = v;
         }
         return pixels;
     };
@@ -75,7 +74,7 @@
                 g = d[i + 1],
                 b = d[i + 2],
                 v = (0.2126*r + 0.7152*g + 0.0722*b >= threshold) ? 255 : 0;
-            d[i] = d[i + 1] = d[i + 2] = v
+            d[i] = d[i + 1] = d[i + 2] = v;
         }
         return pixels;
     };
@@ -131,8 +130,8 @@
         initialized,
         previous = false,
         backgroundInitialized = false,
-        lastPosition = undefined,
-        lastMovement = undefined,
+        lastPosition,
+        lastMovement,
         framesWithoutMotion = 0,
         getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia,
         URL = window.URL || window.webkitURL || window.mozURL;
