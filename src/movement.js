@@ -192,20 +192,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         diffCanvas.style.position = 'absolute';
         diffCanvas.style.visibility = 'hidden';
 
-//        test1 = document.createElement('canvas');
-//        document.body.appendChild(test1);
-//
-//        test2 = document.createElement('canvas');
-//        document.body.appendChild(test2);
-
         diffCanvas.width = last.width = background.width = can.width = Movement.constants.WIDTH;
         diffCanvas.height = last.height = background.height = can.height = Movement.constants.HEIGHT;
-
-//        test2.width = Movement.constants.HEIGHT * 2;
-//        test2.height = 255;
-//
-//        test1.width = Movement.constants.WIDTH * 2;
-//        test1.height = 255;
     };
 
     Movement._start = function () {
@@ -355,20 +343,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         }
     };
 
-// For testing purposes
-//    function draw(d, c) {
-//        var w = c.width,
-//            h = c.height;
-//        c = c.getContext('2d');
-//        c.fillStyle = '#fff';
-//        c.fillRect(0, 0, w, h);
-//        c.fillStyle = '#000';
-//        for (var i = 0; i < d.length; i += 1) {
-//           c.fillRect(2 * i, 0, 2, d[i] / 400);
-//        }
-//        c.fillStyle = '#000';
-//    }
-//
     Movement._sceneEmpty = function (data) {
         var minDiff = Movement.constants.NOICE_DIFF,
             bigger = 0;

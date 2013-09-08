@@ -3,14 +3,22 @@
 <head>
 <title>Knee bends</title>
 <style>
+body {
+  background-color: #000;
+}
 #label {
     color: #fff;
-    font-size: 20px;
+    font-size: 40px;
+    font-family: Verdana;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
 }
 </style>
 </head>
 <body>
-<div id="label"><span id="count"></span> knee bends</div>
+<div id="label"><span id="count">0</span> knee <span id="bends">bends</span></div>
 <script src="../../src/movement.js"></script>
 <script>
 (function () {
@@ -31,6 +39,7 @@
         } else if (moves.STAND === m && squat) {
             count += 1;
             document.getElementById('count').innerHTML = count;
+            document.getElementById('bends').innerHTML = (count === 1) ? 'bend' : 'bends';
             squat = false;
         }
     }
