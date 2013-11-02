@@ -277,7 +277,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             changedPixels += diff[i];
         }
         if (changedPixels / 255 <= Movement.constants.MOTION_LIMIT) {
-           framesWithoutMotion += 1; 
+           framesWithoutMotion += 1;
         } else {
             framesWithoutMotion = 0;
         }
