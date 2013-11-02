@@ -1,5 +1,5 @@
 /*
- 
+
 Copyright (C) 2013 @mgechev Minko Gechev
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -11,7 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
  */
 ;(function () {
 
-    Movement = {};
+    var Movement = {};
 
     Movement.constants = {
         WIDTH: 400,
@@ -32,17 +32,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         LEFT_LEG_UP: 'left-leg-up',
         SQUAT: 'squat',
         EMPTY: 'empty',
-        RIGHT_LEG_UP: 'right-leg-up' 
+        RIGHT_LEG_UP: 'right-leg-up'
     };
 
     Movement.positions = {
         LEFT: 'left',
         RIGHT: 'right',
         MIDDLE: 'middle',
-        EMPTY: 'empty' 
+        EMPTY: 'empty'
     };
 
-    Filters = {};
+    var Filters = {};
 
     Filters.getPixels = function(img) {
         var c = this.getCanvas(img.width, img.height),
@@ -135,6 +135,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
     var vid,
         current,
+        can,
         background,
         last,
         diffCanvas,
@@ -454,6 +455,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         return canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height);
     };
 
-    window.Movement = Movement;
+    if (typeof exports === 'object') {
+        module.exports = Movement;
+    } else if (typeof define === 'function' && define.amd) {
+        define(function () {
+            return Movement;
+        });
+    } else {
+        window.Movement = Movement;
+    }
 
 }());
