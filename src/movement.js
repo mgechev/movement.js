@@ -455,6 +455,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         return canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height);
     };
 
-    window.Movement = Movement;
+    if (typeof exports === 'object') {
+        module.exports = Movement;
+    } else if (typeof define === 'function' && define.amd) {
+        define(function () {
+            return Movement;
+        });
+    } else {
+        window.Movement = Movement;
+    }
 
 }());
