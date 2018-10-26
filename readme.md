@@ -1,8 +1,8 @@
-#Movement.js
+# Movement.js
 
 Movement.js is library for recognition of basic gestures using JavaScript and HTML5. Demo videos can be found [here](https://www.youtube.com/watch?v=0_yfU_iNUYo) and [here](https://www.youtube.com/watch?v=7C0D2CkD3pc).
 
-#How to use it?
+# How to use it?
 
 You can initialize it by:
 
@@ -15,7 +15,7 @@ The `callbacks` object can contain the following callbacks:
 
 Both callbacks accept a single argument the new callback/movement.
 
-###List of movements
+### List of movements
 
 This is list of all gestures which Movement.js can currently recognize:
 
@@ -32,7 +32,7 @@ This is list of all gestures which Movement.js can currently recognize:
 
 All movements are located in the namespace `Movement.movements`.
 
-###List of positions
+### List of positions
 
 This is list of all positions which Movement.js supports currently:
 
@@ -43,7 +43,7 @@ This is list of all positions which Movement.js supports currently:
 
 All positions are located in the namespace `Movement.positions`.
 
-###Example
+### Example
 
     Movement.init({
         positionChanged: function (pos) {
@@ -58,6 +58,6 @@ All positions are located in the namespace `Movement.positions`.
         }
     });
 
-#License
+# License
 
 This software is distributed under the terms of the MIT license.
