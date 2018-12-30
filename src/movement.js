@@ -161,7 +161,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     getUserMedia.call(navigator, { video: true }, function (stream) {
       if (!initialized) {
         initialized = true;
-        vid.src = URL.createObjectURL(stream);
+        vid.srcObject = stream;
         vid.play();
         self._start();
       }
